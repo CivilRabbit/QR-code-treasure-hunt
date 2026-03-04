@@ -1,0 +1,33 @@
+{
+  "name": "qr-code-treasure-hunt",
+  "version": "1.0.0",
+  "description": "A webapp for the QR-code treasure hunt by the aeronomie research center in Uccle",
+  "homepage": "https://github.com/CivilRabbit/QR-code-treasure-hunt#readme",
+  "bugs": {
+    "url": "https://github.com/CivilRabbit/QR-code-treasure-hunt/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CivilRabbit/QR-code-treasure-hunt.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-basic-ssl": "^2.1.4",
+    "express": "^5.2.1",
+    "vite": "^7.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
