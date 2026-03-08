@@ -1,0 +1,15 @@
+{
+    "Q0": {"Q": "Which element is the most present in the atmossphere?",
+            "Answers": ["Nitrogen", "Oxygen", "Water", "Carbon"],
+            "correct": 0
+    },
+    "Q1" : 
+        {"Q": "Q2",
+            "Answers": ["A", "B", "C", "D"],
+            "correct": 0
+    },
+    "Q2": {"Q": "Q3",
+            "Answers": ["A", "B", "C", "D"],
+            "correct": 3
+    }
+}
