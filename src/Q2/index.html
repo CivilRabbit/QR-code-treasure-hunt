@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="./../style.css">
+    <meta charset="UTF-8" />
+    <title> QR-code-treasure-hunt </title>
+</head>
+<body>
+    <div class="box" id="box">
+    <h1 class="question" id="question"></h1>
+        <div class="buttonBox" id="buttonBox"></div>
+    <div class="popup">
+        <span class="popuptext" id="succes">HINT</span>
+        <span class="popuptext" id="failure">TRY AGAIN</span>
+    </div>
+
+    </div>
+    <script type="module">
+        import {hasPrev, check } from "./../main.ts";
+        hasPrev(2);
+        document.getElementById("succes").onclick = () => document.getElementById("succes")?.classList.toggle("show");
+        document.getElementById("failure").onclick = () => document.getElementById("failure")?.classList.toggle("show");
+        
+    </script>
+</body> 
