@@ -16,7 +16,8 @@ class UploadController extends BaseController
         $app = Factory::getApplication();
         
         $input = $app->input;
-
+        $type = $input->getString('type', '');
+       
         $file = $_FILES['myfile'];
   
         if (empty($file['name']))
@@ -24,7 +25,21 @@ class UploadController extends BaseController
             $this->fail($app, 'No file uploaded');
             return;
         }
-        $allowed = ['json', 'jsonc'];
+
+        $allowed = [];
+        switch ($type) {
+            case 'img':
+                $allowed = ['jpeg','png', 'gif', 'jpg'];
+                $destinationFolder = JPATH_ROOT . '/media/com_quiz/images';
+                break;
+            case 'json':
+                $allowed = ['json','jsonc'];
+                $destinationFolder = JPATH_ROOT . '/media/com_quiz';
+                break;
+            default:
+
+
+        } 
 
         $ext = strtolower(File::getExt($file['name']));
 
@@ -42,8 +57,6 @@ class UploadController extends BaseController
 
         $tmpPath = $file['tmp_name'];
         $fileName = File::makeSafe($file['name']);
-
-        $destinationFolder = JPATH_ROOT . '/media/com_quiz';
 
         if (!Folder::exists($destinationFolder))
         {

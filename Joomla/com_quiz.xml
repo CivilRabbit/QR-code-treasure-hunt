@@ -23,6 +23,7 @@
     <media destination="com_quiz" folder="media">
         <folder>js</folder>
         <folder>css</folder>
+        <folder>images</folder>
         <file>joomla.asset.json</file>
         
     </media>

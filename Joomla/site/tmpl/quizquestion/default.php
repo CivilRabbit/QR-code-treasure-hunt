@@ -1,7 +1,7 @@
 <?php defined('_JEXEC') or die; ?>
 <div class="box">
     <div class="quiz-container">
-
+        <img src="<?= JPATH_ROOT . '/media/com_quiz/images/' . $this->question->img ?? '' ?>" >   
         <span class="popuptext" id="success"></span>
         <span class="popuptext" id="failure"></span>
 
