@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_quiz",
+  "version": "1.0.0",
+  "assets": [
+    {
+      "name": "com_quiz.main-js",
+      "type": "script",
+      "uri": "media/com_quiz/js/main.js"
+    },
+    {
+      "name": "com_quiz.main-css",
+      "type": "style",
+      "uri": "media/com_quiz/css/style.css"
+    }
+  ]
+}

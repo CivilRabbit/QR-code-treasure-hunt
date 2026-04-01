@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <layout title="COM_QUIZ_MENU">
+    <message>COM_QUIZ_MENU_HELLO_MSG</message>
+  </layout>
+  <fields name="params">
+    <fieldset name="basic">
+      <field name="message"
+             type="text"
+             label="COM_HELLONICO_FIELD_MESSAGE_LABEL"
+             description="COM_QUIZ_FIELD_MESSAGE_DESC"
+             default="Hello from frontend!" />
+    </fieldset>
+  </fields>
+</metadata>

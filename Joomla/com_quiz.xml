@@ -1,0 +1,30 @@
+<extension type="component" method="upgrade" version="5.0">
+
+    <name>com_quiz</name>
+    <namespace path="src">Joomla\Component\Quiz</namespace>
+    <!-- SITE -->
+    <files folder="site">
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <!-- ADMIN -->
+    <administration>
+        <menu link="opton=com_quiz">Quiz</menu>
+
+        <files folder="administrator">
+            <folder>services</folder>
+            <folder>src</folder>
+           <folder>tmpl</folder>
+        </files>
+    </administration>
+
+    <!-- MEDIA -->
+    <media destination="com_quiz" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+        <file>joomla.asset.json</file>
+        
+    </media>
+
+</extension>
