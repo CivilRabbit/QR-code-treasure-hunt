@@ -10,7 +10,7 @@ class HtmlView extends BaseHtmlView
 {
     public function display($tpl = null)
     {
-        $this->message = "Hello Admin Dashboard!";
+        
         parent::display($tpl);
     }
 }

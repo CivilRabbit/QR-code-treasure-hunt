@@ -16,64 +16,51 @@ class UploadController extends BaseController
         $app = Factory::getApplication();
         
         $input = $app->input;
-        $type = $input->getString('type', '');
        
-        $file = $_FILES['myfile'];
+        $folder = $_FILES['files'];
   
-        if (empty($file['name']))
+        if (empty($folder['name']))
         {
-            $this->fail($app, 'No file uploaded');
+            $this->fail($app, 'No folder uploaded');
             return;
         }
 
-        $allowed = [];
-        switch ($type) {
-            case 'img':
-                $allowed = ['jpeg','png', 'gif', 'jpg'];
-                $destinationFolder = JPATH_ROOT . '/media/com_quiz/images';
-                break;
-            case 'json':
-                $allowed = ['json','jsonc'];
+        $allowedPicture = ['jpeg','png', 'gif', 'jpg'];
+        $allowedJson = ['json','jsonc'];
+
+
+        foreach ($folder['name'] as $i => $name) {
+            $ext = strtolower(File::getExt($folder['name'][$i]));
+            if (in_array($ext, $allowedPicture)) {
+               $destinationFolder = JPATH_ROOT . '/media/com_quiz/images';
+            }elseif (in_array($ext, $allowedJson)){
                 $destinationFolder = JPATH_ROOT . '/media/com_quiz';
-                break;
-            default:
+            }else{
+                $this->fail($app, 'Invalid file type');
+                return;
+            }
 
+            $tmpPath = $folder['tmp_name'][$i];
+            $fileName = File::makeSafe($folder['name'][$i]);
 
-        } 
+            if (!Folder::exists($destinationFolder))
+            {
+                Folder::create($destinationFolder);
+            }
 
-        $ext = strtolower(File::getExt($file['name']));
+            $dest = $destinationFolder . '/' . $fileName;
 
-        if (!in_array($ext, $allowed))
-        {
-            $this->fail($app, 'Invalid file type');
-            return;
+            if (File::upload($tmpPath, $dest))
+            {
+                $app->enqueueMessage('file uploaded successfully:' . $folder['name'][$i], 'message');
+            }
+            else
+            {
+                $this->fail($app, 'failed uploading' . $folder['name'][$i]);
+            }
+            
         }
 
-        if ($file['size'] > 2 * 1024 * 1024)
-        {
-            $this->fail($app, 'File too large');
-            return;
-        }
-
-        $tmpPath = $file['tmp_name'];
-        $fileName = File::makeSafe($file['name']);
-
-        if (!Folder::exists($destinationFolder))
-        {
-            Folder::create($destinationFolder);
-        }
-
-        $dest = $destinationFolder . '/' . $fileName;
-
-        if (File::upload($tmpPath, $dest))
-        {
-            $app->enqueueMessage('File uploaded successfully', 'message');
-        }
-        else
-        {
-            $this->fail($app, 'Upload failed');
-            return;
-        }
         $app->redirect('index.php?option=com_quiz');
     }
 

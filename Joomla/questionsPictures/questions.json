@@ -3,7 +3,7 @@
                 {
                         "id":1,
                         "type" : "ms",
-                        "img" : "pic.jpg",
+                        "img" : "media/com_quiz/images/pic.jpg",
                         "question": "Which element is the most present in the atmossphere?",
                         "answers":[
                                 { "text": "Nitrogen", "correct": true, "hint": "Blabla" },
