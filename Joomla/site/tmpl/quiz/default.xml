@@ -7,7 +7,7 @@
     <fieldset name="basic">
       <field name="message"
              type="text"
-             label="COM_HELLONICO_FIELD_MESSAGE_LABEL"
+             label="COM_QUIZ_FIELD_MESSAGE_LABEL"
              description="COM_QUIZ_FIELD_MESSAGE_DESC"
              default="Hello from frontend!" />
     </fieldset>
